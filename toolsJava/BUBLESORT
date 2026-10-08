@@ -1,0 +1,19 @@
+public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        
+        // Bucle externo: controla la cantidad de pasadas
+        for (int i = 0; i < n - 1; i++) {
+            
+            // Bucle interno: compara elementos adyacentes
+            // La condición (n - i - 1) evita comparar los elementos finales que ya se ordenaron
+            for (int j = 0; j < n - i - 1; j++) {
+                
+                // Si el elemento actual es mayor que el siguiente, se intercambian
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
