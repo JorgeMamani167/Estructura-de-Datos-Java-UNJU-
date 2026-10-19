@@ -15,7 +15,7 @@ public class StackMio<ELEMENT> implements StackInterface<ELEMENT>{
         this.dimencion = 10; //dimencion por defecto           
     }
     
-    public StackMio(int dimencion, ELEMENT... items){ {//ELEMENT... items es para que agrege en fila como un arreglo
+    public StackMio(int dimencion, ELEMENT... items){//ELEMENT... items es para que agrege en fila como un arreglo
         if(dimencion <= 0){
             throw new RuntimeException("dimencion invaida");//es para ver si la dimencion es valida
         }
@@ -32,7 +32,6 @@ public class StackMio<ELEMENT> implements StackInterface<ELEMENT>{
             }
         }
     }
-    }//por que hay dos llaves?
     
     @Override
     public boolean push(ELEMENT item){
@@ -53,7 +52,7 @@ public class StackMio<ELEMENT> implements StackInterface<ELEMENT>{
         if(this.data.isEmpty()){
             throw new RuntimeException("La cola esta vacia");
         }
-        ELEMENT item = this.data.removeFirst();
+        ELEMENT item = this.data.removeLast();
         return item;
     }
     @Override
@@ -68,10 +67,11 @@ public class StackMio<ELEMENT> implements StackInterface<ELEMENT>{
         ELEMENT item = this.data.removeLast();
         this.data.addLast(item);
         return item;
+        //usando mis metodos return this.data.getItem(this.data.size() - 1);
     }
     @Override
     public boolean isFull(){
-        return this.dimencion >= this.data.size();
+        return this.data.size() >= this.dimencion;
     }
     @Override
     public int size(){
