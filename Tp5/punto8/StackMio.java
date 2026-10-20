@@ -1,10 +1,10 @@
-package luka.punto7_tp5;
-
+package luka.punto8_tp5;
+import java.util.Iterator;
 /**
  * @author lucas
  */
 
-public class StackMio<ELEMENT> implements StackInterface<ELEMENT>{
+public class StackMio<ELEMENT> implements StackInterface<ELEMENT>, Iterable<ELEMENT>{
     private DoubleLinkedList<ELEMENT> data;
     private Class<?> elementClass;
     private int dimencion;
@@ -90,5 +90,13 @@ public class StackMio<ELEMENT> implements StackInterface<ELEMENT>{
         ELEMENT item = this.data.removeFirst();
         this.data.addFirst(item);
         return item;
+    }
+    
+    //con esto hacemos un for each
+    @Override
+    public Iterator<ELEMENT> iterator() {
+        // Como el tope está en tail (addLast), iteratorBack() arranca en tail
+        // y retrocede hasta head usando prev.
+        return this.data.iteratorBack();
     }
 }

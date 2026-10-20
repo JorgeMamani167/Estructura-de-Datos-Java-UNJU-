@@ -1,4 +1,4 @@
-package luka.punto7_tp5;
+package luka.punto8_tp5;
 
 /**
  * Created by Julio Tentor <jtentor@fi.unju.edu.ar>
@@ -238,7 +238,7 @@ public class DoubleLinkedList<ELEMENT> implements ILinkedList2<ELEMENT> {
     //este metodo solo es para este punto c de este tp 
     public ELEMENT getItem(int index) {
         if (index < 0 || index >= this.count) {
-            return null;
+            throw new RuntimeException("Indice fuera de rango");
         }
 
         Node<ELEMENT> temp;
@@ -258,7 +258,7 @@ public class DoubleLinkedList<ELEMENT> implements ILinkedList2<ELEMENT> {
     
     public void setItem(int index, ELEMENT item) {
         if (index < 0 || index >= this.count) {
-            throw new IndexOutOfBoundsException("Indice fuera de rango");
+            throw new RuntimeException("Indice fuera de rango");
         }
         Node<ELEMENT> temp;
         if (index < this.count / 2) {
